@@ -2,33 +2,36 @@
 
 console.log('i am alive');
 
-let arSeattle = [];
+let arrHours = ['6:00 am','7:00 am','8:00 am','9:00 am','10:00 am','11:00 am','12:00 am','1:00 pm','2:00 pm', '3:00 pm', '4:00 pm', '5:00 pm', '6:00 pm', '7:00 pm'];
 
-let seattleShop = {
+let Seattle = {
   location: 'Seattle',
   minCust: 23,
   maxCust: 65,
   averageCookiesPerCust: 6.3,
-  // method that generates random num customer/hour
-  randomNumberCustomers: function(min=this.minCust, max=this.maxCust) {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    let randomNum = Math.floor(Math.random()*((max-min+1)+min));
-    let custPerHour = `${randomNum} customers per hour`;
-    return custPerHour;
-    //min and max are inclusive
-  },
-  randomNumberCookies: function(min, max) {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    let randomNum = Math.floor(Math.random()*((max-min+1)+min));
-    console.log(randomNum);
-    let cookiesPerHour = `${randomNum} customers per hour`;
-    return cookiesPerHour;
-  }
-};
-// console.log(seattleShop.this.minCust);
 
-//proof of life for randomNumberBetween() method
-console.log(seattleShop.randomNumberCustomers());
-console.log(seattleShop.randomNumberCookies());
+  // method that generates random num customer/hour
+
+  randomCust: function(){
+    let randomNumber = Math.floor(Math.random()*((this.maxCust-this.minCust+1)+this.minCust));
+    return randomNumber;
+  },
+
+  // method that calcs/store sim num cookies purch/hour/location using avg cookies * rando customers
+
+  randomCookiesPurch: function(){
+    let calcNum = this.randomCust()*this.averageCookiesPerCust;
+    let randomNum = Math.floor(calcNum);
+    return randomNum;
+  },
+
+  // store results in seperate arr
+
+  arrSeattle: []
+
+};
+
+// proof of life: object method
+
+console.log(Seattle.randomCust());
+console.log(Seattle.randomCookiesPurch());
