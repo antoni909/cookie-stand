@@ -1,54 +1,47 @@
 'use strict';
 
-// console.log('i am alive');
-
-// DOM process: 1.Create Element --> 2.Give Content --> 3.Append
+// DOM process: 1.Create Element --> 2.Give Content --> 3.Append-to-Container
 let myContainer = document.getElementById('container');
 let ulSeattle = document.getElementById('seattle');
 
-let arrHours = ['6:00 am','7:00 am','8:00 am','9:00 am','10:00 am','11:00 am','12:00 am','1:00 pm','2:00 pm', '3:00 pm', '4:00 pm', '5:00 pm', '6:00 pm', '7:00 pm'];
+let arrHours = ['06:00 am','07:00 am','08:00 am','09:00 am','10:00 am','11:00 am','12:00 am','01:00 pm','02:00 pm', '03:00 pm', '04:00 pm', '05:00 pm', '06:00 pm', '07:00 pm'];
 
 let Seattle = {
   location: 'Seattle',
   minCust: 23,
   maxCust: 65,
   averageCookiesPerCust: 6.3,
-  arrayCookiesSoldPerHour: [],
+  arrayCookiesSoldPerHour:[],
   sumCookiesTotal: 0,
-
-  // method that generates random num customer/hour
   randomCustPerHour: function(){
-
+    // method that generates random num customer/hour
     return Math.floor (Math.random() * (this.maxCust - this.minCust + 1) + this.minCust);
-
   },
-
-  // method that calcs/stores num cookies purch/hour/location using avg cookies * rando customers
   numCookiesPerHour: function(){
-
+    // method calcs/stores num cookies purch/hour/location: avg cookies * randomCustomers
     let calcNumCookies = this.randomCustPerHour()*this.averageCookiesPerCust;
     let calcNumCookiesHourly = Math.floor(calcNumCookies);
     return calcNumCookiesHourly;
-
   },
-
-  // method that creates an array based on the sim num cookies
   arrayCookies: function() {
-
+    // method that creates an array based on the sim num cookies
     for (var i = 0; i < arrHours.length; i++) {
       this.arrayCookiesSoldPerHour.push(this.numCookiesPerHour());
+      this.sumCookiesTotal += this.arrayCookiesSoldPerHour[i];
+      console.log();
     }
   },
-
-  // //display arr on sales.html
   render: function(){
-
+    // //display array list
     for(var i=0;i<Seattle.arrayCookiesSoldPerHour.length;i++){
-      this.sumCookiesTotal += this.arrayCookiesSoldPerHour[i];
       let ul = document.createElement('ul');
-      ul.textContent = `${arrHours[i]}: ${this.arrayCookiesSoldPerHour[i]}`;
+      // ul.textContent = `${arrHours[i]}: ${this.arrayCookies()}`;
+      ul.textContent = `${arrHours[i]}: ${this.arrayCookiesSoldPerHour[i]} cookies`;
       ulSeattle.appendChild(ul);
     }
+    let totalCookies = document.createElement('ul');
+    totalCookies.textContent =`Total: ${this.sumCookiesTotal} cookies` ;
+    ulSeattle.appendChild(totalCookies);
   }
 };
 Seattle.arrayCookies();
