@@ -13,40 +13,43 @@ let Seattle = {
   minCust: 23,
   maxCust: 65,
   averageCookiesPerCust: 6.3,
-  arrCookiesSoldPerHour: [],
+  arrayCookiesSoldPerHour: [],
   sumCookiesTotal: 0,
 
   // method that generates random num customer/hour
   randomCustPerHour: function(){
-    let randomNumber = Math.floor(Math.random()*((this.maxCust-this.minCust+1)+this.minCust));
-    return randomNumber;
+
+    return Math.floor (Math.random() * (this.maxCust - this.minCust + 1) + this.minCust);
+
   },
 
-  // method that calcs/stores sim num cookies purch/hour/location using avg cookies * rando customers
-  randomNumCookiesPerHour: function(){
-    let calcNum = this.randomCustPerHour()*this.averageCookiesPerCust;
-    let randomNum = Math.floor(calcNum);
-    return randomNum;
+  // method that calcs/stores num cookies purch/hour/location using avg cookies * rando customers
+  numCookiesPerHour: function(){
+
+    let calcNumCookies = this.randomCustPerHour()*this.averageCookiesPerCust;
+    let calcNumCookiesHourly = Math.floor(calcNumCookies);
+    return calcNumCookiesHourly;
+
   },
 
   // method that creates an array based on the sim num cookies
-  renderArrSimCookies: function() {
+  arrayCookies: function() {
 
     for (var i = 0; i < arrHours.length; i++) {
-      this.randomNumCookiesPerHour().push();
-      console.log(arr);
-
+      this.arrayCookiesSoldPerHour.push(this.numCookiesPerHour());
     }
   },
 
   // //display arr on sales.html
-  // render: function(){
-  //   for(var i=0;i<Seattle.arrCookiesSoldPerHour.length;i++){
-  //     let ul = document.createElement('ul');
-  //     ul.textContent = Seattle.arrCookiesSoldPerHour[i];
-  //     ulSeattle.appendChild(ul);
-  //   }
-  // }
-};
+  render: function(){
 
-Seattle.renderArrSimCookies();
+    for(var i=0;i<Seattle.arrayCookiesSoldPerHour.length;i++){
+      this.sumCookiesTotal += this.arrayCookiesSoldPerHour[i];
+      let ul = document.createElement('ul');
+      ul.textContent = `${arrHours[i]}: ${this.arrayCookiesSoldPerHour[i]}`;
+      ulSeattle.appendChild(ul);
+    }
+  }
+};
+Seattle.arrayCookies();
+Seattle.render();
