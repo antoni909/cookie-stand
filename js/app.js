@@ -19,8 +19,7 @@ let Seattle = {
   },
   numCookiesPerHour: function(){
     // method calcs/stores num cookies purch/hour/location: avg cookies * randomCustomers
-    let calcNumCookies = this.randomCustPerHour()*this.averageCookiesPerCust;
-    let calcNumCookiesHourly = Math.floor(calcNumCookies);
+    let calcNumCookiesHourly = Math.floor(this.randomCustPerHour()*this.averageCookiesPerCust);
     return calcNumCookiesHourly;
   },
   arrayCookies: function() {
@@ -28,7 +27,6 @@ let Seattle = {
     for (var i = 0; i < arrHours.length; i++) {
       this.arrayCookiesSoldPerHour.push(this.numCookiesPerHour());
       this.sumCookiesTotal += this.arrayCookiesSoldPerHour[i];
-      console.log();
     }
   },
   render: function(){
