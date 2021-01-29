@@ -1,7 +1,7 @@
 'use strict';
-
 // DOM process: 1.Create Element --> 2.Give Content --> 3.Append-to-Container
 // let myContainer = document.getElementById('container');
+
 let ulSeattle = document.getElementById('seattle');
 let ulTokyo = document.getElementById('tokyo');
 let ulDubai = document.getElementById('dubai');
@@ -10,7 +10,7 @@ let ulLima = document.getElementById('lima');
 
 let arrHours = ['06:00 am','07:00 am','08:00 am','09:00 am','10:00 am','11:00 am','12:00 am','01:00 pm','02:00 pm', '03:00 pm', '04:00 pm', '05:00 pm', '06:00 pm', '07:00 pm'];
 
-let Seattle = {
+let seattle = {
   location: 'Seattle',
   minCust: 23,
   maxCust: 65,
@@ -35,6 +35,7 @@ let Seattle = {
   },
   render: function(){
     // //display array list
+    this.arrayCookies();
     for(var i=0;i<this.arrayCookiesSoldPerHour.length;i++){
       let ul = document.createElement('ul');
       // ul.textContent = `${arrHours[i]}: ${this.arrayCookies()}`;
@@ -47,7 +48,7 @@ let Seattle = {
   }
 };
 
-let Tokyo = {
+let tokyo = {
   location: 'tokyo',
   minCust: 3,
   maxCust: 24,
@@ -68,6 +69,7 @@ let Tokyo = {
     }
   },
   render: function(){
+    this.arrayCookies();
     for(var i=0;i<this.arrayCookiesSoldPerHour.length;i++){
       let ul = document.createElement('ul');
       ul.textContent = `${arrHours[i]}: ${this.arrayCookiesSoldPerHour[i]} cookies`;
@@ -79,7 +81,7 @@ let Tokyo = {
   }
 };
 
-let Dubai = {
+let dubai = {
   location: 'dubai',
   minCust: 11,
   maxCust: 38,
@@ -100,6 +102,7 @@ let Dubai = {
     }
   },
   render: function(){
+    this.arrayCookies();
     for(var i=0;i<this.arrayCookiesSoldPerHour.length;i++){
       let ul = document.createElement('ul');
       ul.textContent = `${arrHours[i]}: ${this.arrayCookiesSoldPerHour[i]} cookies`;
@@ -111,7 +114,7 @@ let Dubai = {
   }
 };
 
-let Paris = {
+let paris = {
   location: 'paris',
   minCust: 20,
   maxCust: 38,
@@ -132,6 +135,7 @@ let Paris = {
     }
   },
   render: function(){
+    this.arrayCookies();
     for(var i=0;i<this.arrayCookiesSoldPerHour.length;i++){
       let ul = document.createElement('ul');
       ul.textContent = `${arrHours[i]}: ${this.arrayCookiesSoldPerHour[i]} cookies`;
@@ -143,7 +147,7 @@ let Paris = {
   }
 };
 
-let Lima = {
+let lima = {
   location: 'lima',
   minCust: 2,
   maxCust: 16,
@@ -164,6 +168,7 @@ let Lima = {
     }
   },
   render: function(){
+    this.arrayCookies();
     for(var i=0;i<this.arrayCookiesSoldPerHour.length;i++){
       let ul = document.createElement('ul');
       ul.textContent = `${arrHours[i]}: ${this.arrayCookiesSoldPerHour[i]} cookies`;
@@ -175,13 +180,8 @@ let Lima = {
   }
 };
 
-Seattle.arrayCookies();
-Seattle.render();
-Tokyo.arrayCookies();
-Tokyo.render();
-Dubai.arrayCookies();
-Dubai.render();
-Paris.arrayCookies();
-Paris.render();
-Lima.arrayCookies();
-Lima.render();
+seattle.render();
+tokyo.render();
+dubai.render();
+paris.render();
+lima.render();
