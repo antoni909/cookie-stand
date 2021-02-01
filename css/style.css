@@ -10,6 +10,7 @@ table{
   border: 2px thick red;
   border-style: double;
   color: green;
+  text-align: center;
 }
 
 thead {
