@@ -8,12 +8,15 @@ document.getElementById('container');
 let cookieTable = document.getElementById('cookie-table');
 let arrHours = ['06:00 am','07:00 am','08:00 am','09:00 am','10:00 am','11:00 am','12:00 am','01:00 pm','02:00 pm', '03:00 pm', '04:00 pm', '05:00 pm', '06:00 pm', '07:00 pm'];
 const allStoreCreator = [];
+let arrNetSum = [];
 
 function renderAll() {
 
   for(var i=0;i< allStoreCreator.length; i++){
     allStoreCreator[i].render();
   }
+  tableHeader();
+  tableTotalRow();
 }
 
 function tableHeader() {
@@ -101,5 +104,20 @@ new StoreCreator('paris', 20, 38, 2.3);
 new StoreCreator('lima', 2, 16, 4.6);
 
 renderAll();
-tableHeader();
-tableTotalRow();
+
+// const rows = 5;
+// const cols = 14;
+
+// const arr1 = [];
+// let colsSum = 0;
+
+// for(var i=0;i<rows;i++){
+//   arr1[i] = [];
+//   console.log(arr1[i][0]);
+//   for(var j=0; j<rows[i].length;j++){
+//     arr1[i][j] = 0;
+//     console.log(arr1[i]);
+//   }
+// }
+
+// console.log(arr1[i][j]);

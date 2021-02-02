@@ -8,9 +8,15 @@
 
 ### Author: Lorenzo Ortega
 
+### Collaborators : Audrey Patterson, Shelby Harner
+
 ### Links and Resources & Links Used as Reference
 
 - Mozilla Developer Network (MDN) [JavaScript Objects](https://developer.mozilla.org/en-us/docs/Web/JavaScript/Guide/Working_with_Objects)
+
+- Font Design by Tanukizamurai [Google Fonts](https://fonts.google.com/specimen/Yusei+Magic?category=Serif,Sans+Serif&preview.size=64&preview.layout=row&selection.family=Yusei+Magic#about)
+
+- Font Design by Marcelo Magalhães [Google Fonts](https://fonts.google.com/specimen/Yusei+Magic?category=Serif,Sans+Serif&preview.size=64&preview.layout=row&selection.family=Yusei+Magic#standard-styles)
 
 ### Submission PR
 
