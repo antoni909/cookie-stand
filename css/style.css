@@ -1,19 +1,36 @@
 body {
   font-size: 100%;
+  background-color: beige;
 }
 
-body {
-  border: 2px thick black;
-}
+h1 { 
+  border-style: solid;
+  border-width: 5px;
+  border-color: rgb(168, 233, 139);
+  padding: 10px 5px;
+  margin: 10px 10px;
 
-table{
-  border: 2px thick red;
-  border-style: double;
-  color: green;
+  color: rgb(209, 82, 68);
   text-align: center;
 }
 
-thead {
-  border: 2px thin black;
+#container {
   border-style: solid;
+  border-color: rgb(217, 223, 140);
+  border-width: 5px;
+  padding: 10px 10px;
+  margin: 20px 10px;
+  text-align: center;
+}
+
+thead,tr,td {
+  border-style: dotted;
+  border-color: black;
+  border-width: .1px;
+}
+
+tfoot, th, tr{
+  border-style: solid;
+  border-color: black;
+  border-width: .1px;
 }
