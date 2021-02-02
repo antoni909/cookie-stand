@@ -104,6 +104,9 @@ renderAll();
 tableHeader();
 tableTotalRow();
 
+
+
+
 // const rows = 5;
 // const cols = 14;
 
