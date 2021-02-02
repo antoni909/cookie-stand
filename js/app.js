@@ -103,3 +103,20 @@ new StoreCreator('lima', 2, 16, 4.6);
 renderAll();
 tableHeader();
 tableTotalRow();
+
+// const rows = 5;
+// const cols = 14;
+
+// const arr1 = [];
+// let colsSum = 0;
+
+// for(var i=0;i<rows;i++){
+//   arr1[i] = [];
+//   console.log(arr1[i][0]);
+//   for(var j=0; j<rows[i].length;j++){
+//     arr1[i][j] = 0;
+//     console.log(arr1[i]);
+//   }
+// }
+
+// console.log(arr1[i][j]);
