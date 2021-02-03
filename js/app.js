@@ -8,7 +8,6 @@ document.getElementById('container');
 let cookieTable = document.getElementById('cookie-table');
 let arrHours = ['06:00 am','07:00 am','08:00 am','09:00 am','10:00 am','11:00 am','12:00 am','01:00 pm','02:00 pm', '03:00 pm', '04:00 pm', '05:00 pm', '06:00 pm', '07:00 pm'];
 const allStoreCreator = [];
-let arrNetSum = [];
 
 function renderAll() {
 
@@ -16,7 +15,7 @@ function renderAll() {
     allStoreCreator[i].render();
   }
   tableHeader();
-  tableTotalRow();
+  tableFooterRow();
 }
 
 function tableHeader() {
@@ -39,12 +38,15 @@ function tableHeader() {
   tr.appendChild(thTotal);
 }
 
-function tableTotalRow() {
+function tableFooterRow() {
   let tfoot = document.createElement('tfoot');
   cookieTable.appendChild(tfoot);
   let th = document.createElement('th');
   th.textContent = 'Totals';
   tfoot.appendChild(th);
+  // create a function that renders netCookieTotals on tableFooterRow method
+
+
 }
 
 function StoreCreator (location, minCust, maxCust, averageCookiesPerCust){
@@ -75,7 +77,6 @@ StoreCreator.prototype.arrayCookies = function() {
 
 StoreCreator.prototype.render = function(){
   this.arrayCookies();
-
   let tr = document.createElement('tr');
   cookieTable.appendChild(tr);
   let th = document.createElement('th');
@@ -85,9 +86,9 @@ StoreCreator.prototype.render = function(){
   for(var i=0;i<arrHours.length;i++){
     let td = document.createElement('td');
     td.textContent = this.arrayCookiesSoldPerHour[i];
-
     tr.appendChild(td);
   }
+
   let td = document.createElement('td');
   td.textContent = this.sumCookiesTotal;
   tr.appendChild(td);
@@ -102,22 +103,47 @@ new StoreCreator('dubai', 11, 38, 3.7);
 new StoreCreator('paris', 20, 38, 2.3);
 
 new StoreCreator('lima', 2, 16, 4.6);
-
 renderAll();
 
-// const rows = 5;
-// const cols = 14;
+//create a function that adds hour column totals
 
-// const arr1 = [];
-// let colsSum = 0;
+// function addColumnTots(){
+//   let arrColSum = [];
+//   // some array
 
-// for(var i=0;i<rows;i++){
-//   arr1[i] = [];
-//   console.log(arr1[i][0]);
-//   for(var j=0; j<rows[i].length;j++){
-//     arr1[i][j] = 0;
-//     console.log(arr1[i]);
+//   for(var i=0;i<arrHours.length;i++);
+//   let emptyArr = [];
+//   let calcSum = 0;
+//   for(var j=0;j<this.arrayCookiesSoldPerHour.length;j++){
+//     calcSum += this.arrayCookiesSoldPerHour[j][i];
+//     emptyArr.push(calcSum);
+//     arrColSum = emptyArr;
 //   }
+//   return arrColSum;
 // }
+// addColumnTots();
 
-// console.log(arr1[i][j]);
+// j is the array element(5 tot) and i is the zero-index value of the array at j, i will always be the idex value of the array(i assume)
+
+// function netCookieCount(){
+//   let arrColumnSum = [];
+//   var lettersArrays = [
+//     [1, 2, 3, 4, 5],
+//     [1, 2, 3, 4, 5],
+//     [1, 2, 3, 4, 5],
+//     [1, 2, 3, 4, 5],
+//     [1, 2, 3, 4, 5]
+//   ];
+
+//   for (var i = 0; i < lettersArrays.length; i++){
+//     let sum = 0;
+//     var emptyArray = [];
+//     for (var j = 0; j < lettersArrays[i].length; j++){
+//       sum += lettersArrays[j][i];
+//       emptyArray.push(sum);
+//       arrColumnSum = emptyArray;
+//     }
+//   }
+//   return arrColumnSum;
+// }
+// netCookieCount();
