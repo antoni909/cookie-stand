@@ -53,28 +53,123 @@ header{
   background-color: rgb(122, 94, 94);
 }
 
-nav{
-  height: 80px;
+#nav-bar{
+  width: 960px;
+  height: 70px;
   background-color: rgb(122, 94, 94);
-}
-
-header a{
-  height: 80px;
+  margin: 5px;
+  margin-top: 0px;
 }
 
 header img{
   float: left;
-  margin: 5px auto;
-  margin-left: 0px;
+  height: 70px;
+  margin: 0px auto;
 }
 
 nav span{
   width: 170px;
-  height: 80px;
+  height: 70px;
+  margin: auto 8px;
+  margin-bottom: 0px;
+  padding: 0px;
   display: inline-block;
+  float: none;
+  background-color: white;
 }
 
-nav span>a {
+nav span>a{
+  width: auto;
+  height: auto;
+  padding: auto;
+  background-color: black;
+  align-items: center;
   text-align: center;
   vertical-align: middle;
+}
+
+main{
+  width: 960px;
+  height: 1080px;
+  margin: 20px auto;
+  margin-bottom: 0px;
+}
+
+#hero-section{
+  width: 960px;
+  height: 400px;
+}
+
+#hero-img{
+  width: 480px;
+  height: 400px;
+  /* display: inline-block; */
+  float: left;
+}
+
+#hero-img img{
+  padding-left: 20px;
+}
+
+#scrollable-ps{
+  width:460px;
+  height: 360px;
+  display: inline;
+  float: right;
+  padding-right: 20px;
+}
+
+main div{
+  background-color: black;
+  color: white;
+  height: 20px;
+  padding: 0p;
+  width: 100px;
+  /* display: inline-block; */
+  float: left;
+}
+
+#sub-banners{
+  width: 960px;
+  height: 300px;
+  margin: 20px;
+}
+
+#sub-banners ul{
+  width: 960px;
+  height: 300px;
+}
+
+/* li width would not adjust, to fix: */
+/* https://stackoverflow.com/questions/26912694/css-width-wont-apply-to-ul-li-label-and-such */
+
+#sub-banners ul>li{
+  /* width: 300px; */
+  height: 300px;
+  /* display: inline; */
+  float: left;
+  margin-left: 10px;
+}
+
+#sub-banners li:first-child{
+  margin-left: 0px;
+}
+
+#feature-banner{
+  width: 940px;
+  height: 300px;
+  margin: 20px auto;
+}
+
+#feature-banner a img{
+  width: 940px;
+  height: 300px;
+}
+
+footer{
+  width: 960px;
+  height: 200px;
+  margin-top: 0px;
+  background-color: black;
+  color: white;
 }
