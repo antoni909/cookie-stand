@@ -42,3 +42,39 @@ td {
   font-family: 'Yusei Magic', sans-serif;
   color: rgb(219, 110, 14);
 }
+
+#landing-pg{
+  background-color: rgb(243, 152, 141);
+  width: 960px;
+}
+
+header{
+  height: 80px;
+  background-color: rgb(122, 94, 94);
+}
+
+nav{
+  height: 80px;
+  background-color: rgb(122, 94, 94);
+}
+
+header a{
+  height: 80px;
+}
+
+header img{
+  float: left;
+  margin: 5px auto;
+  margin-left: 0px;
+}
+
+nav span{
+  width: 170px;
+  height: 80px;
+  display: inline-block;
+}
+
+nav span>a {
+  text-align: center;
+  vertical-align: middle;
+}
