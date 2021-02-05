@@ -7,7 +7,7 @@
 document.getElementById('container');
 let cookieTable = document.getElementById('cookie-table');
 let arrHours = ['06:00 am','07:00 am','08:00 am','09:00 am','10:00 am','11:00 am','12:00 am','01:00 pm','02:00 pm', '03:00 pm', '04:00 pm', '05:00 pm', '06:00 pm', '07:00 pm'];
-const allStoreCreator = [];
+let allStoreCreator = [];
 
 function renderAll() {
 
@@ -147,3 +147,30 @@ renderAll();
 //   return arrColumnSum;
 // }
 // netCookieCount();
+
+// MyNotes - How Nested Loops Work:
+
+// let netColSum = [];
+// let myArr = [[0, 1, 2],[3, 4, 5],[6, 7, 8]];
+
+// for(let i=0; i<myArr.length; i++){
+//   console.log('outer i: ' + i); // iteration num = .length val, also outer i = inner 1
+//   console.log('myArr[i]: '+myArr[i]);
+//   console.log(myArr[0],myArr[1],myArr[2]);
+
+//   for(let j=0; j< myArr[i].length; j++){
+//     console.log('inner i: '+ i);
+//     console.log('           '+'j'+'['+j+']','i'+'['+i+']');
+//     console.log('                         myArr[j][i]: '+ myArr[j][i]);
+//   }
+// }
+
+let myArr = [[0, 1, 2],[3, 4, 5],[6, 7, 8]];
+
+for(let i=0; i<myArr.length; i++){
+  console.log(myArr[i][i]);
+  console.table(myArr);
+}
+
+
+
