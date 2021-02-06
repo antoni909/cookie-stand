@@ -56,7 +56,7 @@ header{
 #nav-bar{
   width: 960px;
   height: 80px;
-  background-color: rgb(122, 94, 94);
+  background-color: white;
   margin: 0px;
   margin-top: 0px;
 }
@@ -82,7 +82,7 @@ nav a{
   height: 70px;
   margin: 5px 12px;
   background-color: black;
-  color: salmon;
+  color: white;
   align-items: center; 
   text-align: center; 
   display: inline-block;
@@ -99,6 +99,8 @@ main{
 #hero-section{
   width: 960px;
   height: 400px;
+  border: double;
+  background-color: white;
 }
 
 #hero-img{
@@ -109,29 +111,33 @@ main{
 
 #hero-img img{
   padding-left: 20px;
+  padding-top: 20%;
 }
 
 #scrollable-ps{
   width:460px;
-  height: 360px;
+  height: 355px;
   display: inline;
   float: right;
   padding-right: 20px;
+  padding-top: 8px;
   overflow: scroll;
+  line-height: 1.5em;
+  font-weight: bold;
 }
 
 #scrollable-ps h2{
   font-family: 'Hachi Maru Pop', cursive;
-  color: black;  
+  text-decoration: underline;
 }
 
 #scrollable-ps ul{
+  color: salmon;
   font-family: 'Yusei Magic', sans-serif;
-  /* font-family: 'Hachi Maru Pop', cursive; */
-
 }
 
 #scrollable-ps p{
+  color: salmon;
   font-family: 'Yusei Magic', sans-serif;
 }
 
@@ -139,16 +145,18 @@ main div{
   background-color: black;
   color: white;
   height: 20px;
-  padding: 0p;
+  margin-top: 10px;
   width: 100px;
   /* display: inline-block; */
   float: left;
 }
 
 #sub-banners{
+  background-color: white;
+  border: double;
   width: 960px;
   height: 300px;
-  margin: 20px;
+  margin: 20px 0px;
 }
 
 #sub-banners ul{
@@ -172,15 +180,11 @@ main div{
 }
 
 #feature-banner{
-  width: 940px;
+  width: 960px;
   height: 300px;
   margin: 20px auto;
-}
-
-#feature-banner{
-  width: 940px;
-  height: 300px;
-  margin: auto;
+  background-color: white;
+  border: double;
 }
 
 footer{
