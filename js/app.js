@@ -61,7 +61,9 @@ function renderAll() {
     allStoreCreator[i].render();
   }
   tableHeader();
+  calcColSums();
   tableFooterRow();
+
 }
 
 function tableHeader() {
@@ -84,20 +86,10 @@ function tableHeader() {
   tr.appendChild(thTotal);
 }
 
-function tableFooterRow() {
-  let tfoot = document.createElement('tfoot');
-  cookieTable.appendChild(tfoot);
-  let th = document.createElement('th');
-  th.textContent = 'Totals';
-  tfoot.appendChild(th);
-  // create a function that renders netCookieTotals on tableFooterRow function
-
-}
-
 function calcColSums(){
+
   let arrNetSum = new Array(arrHours.length);
   arrNetSum.fill(0);
-  console.log(arrNetSum);
   for(let i = 0; i < allStoreCreator.length; i++ ){
     for(let j = 0; j< allStoreCreator[i].arrayCookiesSoldPerHour.length; j++){
       arrNetSum[j] += allStoreCreator[i].arrayCookiesSoldPerHour[j];
@@ -105,6 +97,27 @@ function calcColSums(){
   }
   return arrNetSum;
 }
+
+function tableFooterRow() {
+  let calcdColTotals = calcColSums();
+
+  let tfoot = document.createElement('tfoot');
+  cookieTable.appendChild(tfoot);
+  let th = document.createElement('th');
+  let tr = document.createElement('tr');
+  th.textContent = 'Totals';
+  tr.appendChild(th);
+
+  for (var i=0; i < arrHours.length; i++){
+    let td = document.createElement('td');
+    td.textContent = calcdColTotals[i];
+    tr.appendChild(td);
+  }
+
+  tfoot.appendChild(tr);
+  console.log(th, tr, td);
+}
+
 
 new StoreCreator('seattle', 23, 65, 6.3);
 
@@ -117,10 +130,18 @@ new StoreCreator('paris', 20, 38, 2.3);
 new StoreCreator('lima', 2, 16, 4.6);
 
 renderAll();
-calcColSums();
+
+
+
+
+
 
 //  1. create a function that calc adds hour column totals
 //  2. create a function that renders data to display
+
+
+
+
 
 //notes -
 //  outerloop:
