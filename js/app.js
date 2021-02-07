@@ -4,7 +4,7 @@
 // prototypes assigns default methods to all instances
 // all instances can be rendered in allStoreCreators
 
-document.getElementById('container');
+let myContainer = document.getElementById('container');
 let cookieTable = document.getElementById('cookie-table');
 let myFormInput = document.querySelector('form');
 
@@ -120,7 +120,7 @@ function mySubmitHandler(event){
   let newStore = new StoreCreator(location, minCustomer,maxCustomer,averageCookiesPerCustomer);
 
   newStore.render();
-  
+
 }
 
 function renderAll() {
