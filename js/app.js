@@ -4,10 +4,12 @@
 // prototypes assigns default methods to all instances
 // all instances can be rendered in allStoreCreators
 
-document.getElementById('container');
+let myContainer = document.getElementById('container');
 let cookieTable = document.getElementById('cookie-table');
+let myFormInput = document.querySelector('form');
 
 let arrHours = ['06:00 am','07:00 am','08:00 am','09:00 am','10:00 am','11:00 am','12:00 am','01:00 pm','02:00 pm', '03:00 pm', '04:00 pm', '05:00 pm', '06:00 pm', '07:00 pm'];
+
 const allStoreCreator = [];
 
 function StoreCreator (location, minCust, maxCust, averageCookiesPerCust){
@@ -55,15 +57,6 @@ StoreCreator.prototype.render = function(){
   tr.appendChild(td);
 };
 
-function renderAll() {
-
-  for(var i=0;i< allStoreCreator.length; i++){
-    allStoreCreator[i].render();
-  }
-  tableHeader();
-  tableFooterRow();
-}
-
 function tableHeader() {
   let thead = document.createElement('thead');
   cookieTable.appendChild(thead);
@@ -84,26 +77,60 @@ function tableHeader() {
   tr.appendChild(thTotal);
 }
 
-function tableFooterRow() {
-  let tfoot = document.createElement('tfoot');
-  cookieTable.appendChild(tfoot);
-  let th = document.createElement('th');
-  th.textContent = 'Totals';
-  tfoot.appendChild(th);
-  // create a function that renders netCookieTotals on tableFooterRow function
-
-}
-
 function calcColSums(){
+
   let arrNetSum = new Array(arrHours.length);
   arrNetSum.fill(0);
-  console.log(arrNetSum);
   for(let i = 0; i < allStoreCreator.length; i++ ){
     for(let j = 0; j< allStoreCreator[i].arrayCookiesSoldPerHour.length; j++){
       arrNetSum[j] += allStoreCreator[i].arrayCookiesSoldPerHour[j];
     }
   }
   return arrNetSum;
+}
+
+function tableFooterRow() {
+  let calcdColTotals = calcColSums();
+
+  let tfoot = document.createElement('tfoot');
+  cookieTable.appendChild(tfoot);
+  let th = document.createElement('th');
+  let tr = document.createElement('tr');
+  th.textContent = 'Totals';
+  tr.appendChild(th);
+
+  for (var i=0; i < arrHours.length; i++){
+    let td = document.createElement('td');
+    td.textContent = calcdColTotals[i];
+    tr.appendChild(td);
+  }
+
+  tfoot.appendChild(tr);
+}
+
+function mySubmitHandler(event){
+  event.preventDefault();
+
+  let location = event.target.location.value;
+  let minCustomer = +event.target.mincust.value;
+  let maxCustomer = +event.target.maxcust.value;
+  let averageCookiesPerCustomer = +event.target.averagecookiespercust.value;
+  console.log(averageCookiesPerCustomer);
+
+  let newStore = new StoreCreator(location, minCustomer,maxCustomer,averageCookiesPerCustomer);
+
+  newStore.render();
+
+}
+
+function renderAll() {
+
+  for(var i=0;i< allStoreCreator.length; i++){
+    allStoreCreator[i].render();
+  }
+  tableHeader();
+  calcColSums();
+  tableFooterRow();
 }
 
 new StoreCreator('seattle', 23, 65, 6.3);
@@ -117,10 +144,18 @@ new StoreCreator('paris', 20, 38, 2.3);
 new StoreCreator('lima', 2, 16, 4.6);
 
 renderAll();
-calcColSums();
+
+myFormInput.addEventListener('submit', mySubmitHandler);
+
+
+
 
 //  1. create a function that calc adds hour column totals
 //  2. create a function that renders data to display
+
+
+
+
 
 //notes -
 //  outerloop:
