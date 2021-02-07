@@ -6,8 +6,10 @@
 
 document.getElementById('container');
 let cookieTable = document.getElementById('cookie-table');
+let myFormInput = document.querySelector('form');
 
 let arrHours = ['06:00 am','07:00 am','08:00 am','09:00 am','10:00 am','11:00 am','12:00 am','01:00 pm','02:00 pm', '03:00 pm', '04:00 pm', '05:00 pm', '06:00 pm', '07:00 pm'];
+
 const allStoreCreator = [];
 
 function StoreCreator (location, minCust, maxCust, averageCookiesPerCust){
@@ -54,17 +56,6 @@ StoreCreator.prototype.render = function(){
   td.textContent = this.sumCookiesTotal;
   tr.appendChild(td);
 };
-
-function renderAll() {
-
-  for(var i=0;i< allStoreCreator.length; i++){
-    allStoreCreator[i].render();
-  }
-  tableHeader();
-  calcColSums();
-  tableFooterRow();
-
-}
 
 function tableHeader() {
   let thead = document.createElement('thead');
@@ -115,9 +106,32 @@ function tableFooterRow() {
   }
 
   tfoot.appendChild(tr);
-  console.log(th, tr, td);
 }
 
+function mySubmitHandler(event){
+  event.preventDefault();
+
+  let location = event.target.location.value;
+  let minCustomer = +event.target.mincust.value;
+  let maxCustomer = +event.target.maxcust.value;
+  let averageCookiesPerCustomer = +event.target.averagecookiespercust.value;
+  console.log(averageCookiesPerCustomer);
+
+  let newStore = new StoreCreator(location, minCustomer,maxCustomer,averageCookiesPerCustomer);
+
+  newStore.render();
+  
+}
+
+function renderAll() {
+
+  for(var i=0;i< allStoreCreator.length; i++){
+    allStoreCreator[i].render();
+  }
+  tableHeader();
+  calcColSums();
+  tableFooterRow();
+}
 
 new StoreCreator('seattle', 23, 65, 6.3);
 
@@ -131,7 +145,7 @@ new StoreCreator('lima', 2, 16, 4.6);
 
 renderAll();
 
-
+myFormInput.addEventListener('submit', mySubmitHandler);
 
 
 
