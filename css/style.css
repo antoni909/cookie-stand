@@ -1,5 +1,5 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Hachi+Maru+Pop&family=Londrina+Solid:wght@300&family=Yusei+Magic&display=swap');
+@import url(('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Yusei+Magic&display=swap');
 
 body {
@@ -14,7 +14,9 @@ h1 {
   padding: 10px 5px;
   margin: 10px 10px;
   text-align: center;
-  font-family: 'Hachi Maru Pop', cursive;
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: bold;
+  font-size: 50px;
   color: white;
 }
 
