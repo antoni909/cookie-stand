@@ -71,7 +71,7 @@ header{
 #nav-bar{
   width: 960px;
   height: 80px;
-  background-color: white;
+  background-color: rgb(243, 152, 141);
   margin: 0px;
   margin-top: 0px;
 }
@@ -83,25 +83,23 @@ header img{
 }
 
 nav h1{
-  border: 0px;
   width: 160px;
   height: 70px;
-  margin: 5px 12px;
+  margin: 0px 7px;
   padding: 0px;
   float: left;
-  background-color: salmon;
+  background-color: rgb(243, 152, 141);
 }
 
-nav a{
+nav h1>a{
   width: 160px;
   height: 70px;
-  margin: 5px 12px;
-  background-color: black;
-  color: white;
-  align-items: center; 
-  text-align: center; 
-  display: inline-block;
-  vertical-align: middle;
+  margin: auto 12px;
+  margin-top: 25px;
+  background-color: rgb(243, 152, 141);
+  color: black;
+  text-decoration: none;
+  line-height: 25px;
 }
 
 main{
