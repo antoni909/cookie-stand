@@ -11,36 +11,28 @@
   <header>
     <h1>Salmon Cookies Sales Page</h1>
   </header>
-
   <main id="container">
-
     <form action="">
       <fieldset>
-
-        <legend>Add New Store Info Here!</legend>
-
+        <legend>Add New Store Info</legend>
         <label>location
           <input type="text" name="location" required>
         </label>
-
         <label>Minimum Customers
-          <input type="text" name="mincust" required>
+          <input type="float" name="mincust" required>
         </label>
-
         <label>Maximum Customers
-          <input type="text" name="maxcust"required>
+          <input type="float" name="maxcust"required>
         </label>
-
         <label>Average Cookies Per Hour
-          <input type="text" name="averagecookiespercust" required>
+          <input type="float" name="averagecookiespercust" required>
         </label>
-
         <button type="submit">Send</button>
-
       </fieldset>
     </form>
-
-    <table id="cookie-table"></table>
+    <table id="cookie-table"> 
+      <tfoot id="t-foot"></tfoot>
+    </table>
   </main>
 </body>
 <a href="index.html">Back To Home Page</a>
