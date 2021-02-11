@@ -1,8 +1,10 @@
 'use strict';
 
-let myContainer = document.getElementById('container');
 let cookieTable = document.getElementById('cookie-table');
+let tfoot = document.getElementById('t-foot');
+
 let myFormInput = document.querySelector('form');
+let grandTotal = 0;
 
 let arrHours = ['06:00 am','07:00 am','08:00 am','09:00 am','10:00 am','11:00 am','12:00 am','01:00 pm','02:00 pm', '03:00 pm', '04:00 pm', '05:00 pm', '06:00 pm', '07:00 pm'];
 
@@ -53,6 +55,17 @@ StoreCreator.prototype.render = function(){
   tr.appendChild(td);
 };
 
+new StoreCreator('seattle', 23, 65, 6.3);
+
+new StoreCreator('tokyo', 3, 24, 1.2);
+
+new StoreCreator('dubai', 11, 38, 3.7);
+
+new StoreCreator('paris', 20, 38, 2.3);
+
+new StoreCreator('lima', 2, 16, 4.6);
+
+
 function tableHeader() {
   let thead = document.createElement('thead');
   cookieTable.appendChild(thead);
@@ -87,11 +100,14 @@ function calcColSums(){
 
 function tableFooterRow() {
   let calcdColTotals = calcColSums();
+  grandTotal = 0;
+  for(var i=0; i<calcdColTotals.length; i++){
+    grandTotal += calcdColTotals[i];
+  }
 
-  let tfoot = document.createElement('tfoot');
-  cookieTable.appendChild(tfoot);
   let th = document.createElement('th');
   let tr = document.createElement('tr');
+
   th.textContent = 'Totals';
   tr.appendChild(th);
 
@@ -100,6 +116,9 @@ function tableFooterRow() {
     td.textContent = calcdColTotals[i];
     tr.appendChild(td);
   }
+  let td = document.createElement('td');
+  td.textContent = grandTotal;
+  tr.appendChild(td);
 
   tfoot.appendChild(tr);
 }
@@ -111,12 +130,13 @@ function mySubmitHandler(event){
   let minCustomer = +event.target.mincust.value;
   let maxCustomer = +event.target.maxcust.value;
   let averageCookiesPerCustomer = +event.target.averagecookiespercust.value;
-  console.log(averageCookiesPerCustomer);
 
   let newStore = new StoreCreator(location, minCustomer,maxCustomer,averageCookiesPerCustomer);
-
   newStore.render();
 
+  tfoot.removeChild(tfoot.firstChild);
+
+  tableFooterRow();
 }
 
 function renderAll() {
@@ -128,16 +148,6 @@ function renderAll() {
   calcColSums();
   tableFooterRow();
 }
-
-new StoreCreator('seattle', 23, 65, 6.3);
-
-new StoreCreator('tokyo', 3, 24, 1.2);
-
-new StoreCreator('dubai', 11, 38, 3.7);
-
-new StoreCreator('paris', 20, 38, 2.3);
-
-new StoreCreator('lima', 2, 16, 4.6);
 
 renderAll();
 
